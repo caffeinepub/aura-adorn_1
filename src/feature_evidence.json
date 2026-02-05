@@ -1,0 +1,142 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-responsive-marketing-website-branded-as-aura-adorn-focused-on-fashion-jewelry-and-luxury-products-including-a-home-page-with-brand-headline-featured-product-sections-and-clear-navigation-to-categories",
+      "featureTitle": "Create a responsive marketing website branded as \"aura&adorn\" focused on fashion, jewelry, and luxury products, including a Home page with brand headline, featured product sections, and clear navigation to categories.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/SiteFooter.tsx",
+        "frontend/src/components/SiteHeader.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-core-affiliate-browsing-ux-category-listing-pages-fashion-jewelry-luxury-that-show-product-cards-image-name-short-description-price-price-range-optional-and-a-product-details-view-with-an-external-affiliate-link-button-that-opens-in-a-new-tab",
+      "featureTitle": "Implement core affiliate browsing UX: category listing pages (Fashion/Jewelry/Luxury) that show product cards (image, name, short description, price/price range optional), and a product details view with an external affiliate link button that opens in a new tab.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/pages/CategoryPage.tsx",
+        "frontend/src/pages/ProductDetailsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-simple-admin-only-ui-for-managing-affiliate-products-create-edit-delete-and-wire-it-to-the-backend-use-internet-identity-login-to-gate-access-to-the-admin-area-no-third-party-auth",
+      "featureTitle": "Create a simple admin-only UI for managing affiliate products (create/edit/delete) and wire it to the backend; use Internet Identity login to gate access to the admin area (no third-party auth).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AccessDeniedScreen.tsx",
+        "frontend/src/components/AdminRouteGuard.tsx",
+        "frontend/src/components/LoginButton.tsx",
+        "frontend/src/components/SiteHeader.tsx",
+        "frontend/src/hooks/useAdminProducts.ts",
+        "frontend/src/pages/AdminProductsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-required-legal-affiliate-transparency-content-an-affiliate-disclosure-page-and-a-footer-snippet-indicating-that-the-site-may-earn-commissions-from-qualifying-purchases",
+      "featureTitle": "Add required legal/affiliate transparency content: an \"Affiliate Disclosure\" page and a footer snippet indicating that the site may earn commissions from qualifying purchases.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/SiteFooter.tsx",
+        "frontend/src/pages/AffiliateDisclosurePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-coherent-fashion-luxury-visual-theme-not-blue-purple-across-the-entire-ui-including-typography-spacing-and-components-keep-it-consistent-across-home-category-pages-product-views-and-admin-pages",
+      "featureTitle": "Apply a coherent, fashion-luxury visual theme (not blue/purple) across the entire UI, including typography, spacing, and components; keep it consistent across Home, category pages, product views, and admin pages.",
+      "files": [
+        "frontend/index.css",
+        "frontend/src/components/SiteFooter.tsx",
+        "frontend/src/components/SiteHeader.tsx",
+        "frontend/src/pages/AdminProductsPage.tsx",
+        "frontend/src/pages/CategoryPage.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/ProductDetailsPage.tsx",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-the-generated-brand-images-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-header-hero-section-and-favicon-app-icon-as-appropriate",
+      "featureTitle": "Render the generated brand images as static assets under frontend/public/assets/generated and use them in the header/hero section and favicon/app icon as appropriate.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/components/SiteHeader.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

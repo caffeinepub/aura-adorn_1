@@ -1,0 +1,247 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "aura&adorn affiliate marketing website (frontend)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a responsive aura&adorn marketing Home page with brand headline, featured category sections, and clear navigation to categories.",
+      "acceptanceCriteria": [
+        "The site displays the brand name \"aura&adorn\" prominently on the Home page and header",
+        "The Home page includes sections for Fashion, Jewelry, and Luxury products",
+        "Layout is usable on mobile and desktop (no horizontal scroll, readable typography)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the root app shell with a header, footer, and page routing (Home + category navigation entry points) to support a responsive marketing site for \"aura&adorn\"."
+        },
+        {
+          "path": "frontend/src/components/SiteHeader.tsx",
+          "operation": "create",
+          "description": "Create a responsive header that displays the \"aura&adorn\" brand name prominently and provides navigation links to Fashion, Jewelry, and Luxury category pages."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Implement the Home page hero headline and featured sections for Fashion, Jewelry, and Luxury with clear calls-to-action linking into their category pages."
+        },
+        {
+          "path": "frontend/src/components/SiteFooter.tsx",
+          "operation": "create",
+          "description": "Create a shared footer used across the site to provide consistent navigation affordances (including a link to the Affiliate Disclosure page)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement affiliate browsing UX with category listing pages (Fashion/Jewelry/Luxury) showing product cards and a product details view with an outbound affiliate link opening in a new tab.",
+      "acceptanceCriteria": [
+        "Each category page shows a list/grid of products with images and titles",
+        "Each product has a details view (or expanded view) with a prominent \"Shop\" / \"View Offer\"-style outbound link",
+        "Outbound affiliate links open in a new browser tab"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CategoryPage.tsx",
+          "operation": "create",
+          "description": "Create a reusable category listing page that renders a responsive grid/list of product cards for the selected category (Fashion/Jewelry/Luxury), including image, name, short description, and optional price/price range."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetailsPage.tsx",
+          "operation": "create",
+          "description": "Create a product details view that displays full product information and includes a prominent outbound affiliate button/link configured to open in a new browser tab with safe link attributes."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create a product card component used in category listings to show product image, title, and key metadata, and link to the product details view."
+        },
+        {
+          "path": "frontend/src/hooks/useProducts.ts",
+          "operation": "create",
+          "description": "Add React Query hooks for fetching and caching products from the backend interface (list products and filter by category on the client) and fetching a single product for the details view."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire new routes for category listing pages (Fashion/Jewelry/Luxury) and the product details view so they are reachable via navigation and direct links."
+        },
+        {
+          "path": "frontend/src/components/ui",
+          "operation": "modify",
+          "description": "Use shadcn-ui components for consistent cards/buttons/typography styling across listings and product details. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add an admin-only UI for managing affiliate products (create/edit/delete) gated by Internet Identity authentication and admin authorization, while keeping public browsing accessible.",
+      "acceptanceCriteria": [
+        "Admin page is not accessible unless the user is authenticated via Internet Identity",
+        "Admin can create, edit, and delete products and see changes reflected in category listings",
+        "Non-authenticated users can browse products but cannot access admin controls"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminProductsPage.tsx",
+          "operation": "create",
+          "description": "Create an admin-only page that allows managing affiliate products (create/edit/delete) via backend calls and shows immediate UI refresh via React Query cache invalidation. Use shadcn-ui form controls and dialogs as appropriate. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AdminRouteGuard.tsx",
+          "operation": "create",
+          "description": "Implement a route guard wrapper that requires Internet Identity authentication and checks admin authorization (via backend role helpers) before rendering admin content; otherwise render an access denied experience. Use the authorization component’s frontend guidance for role-based access patterns. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/LoginButton.tsx",
+          "operation": "create",
+          "description": "Add a login/logout button using the existing Internet Identity hook, clearing cached queries on logout to prevent stale admin data exposure. Use the authorization component’s frontend guidance for login/logout UX. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AccessDeniedScreen.tsx",
+          "operation": "create",
+          "description": "Create an access denied screen for unauthorized users attempting to access admin routes, with a clear path to login and return to public browsing."
+        },
+        {
+          "path": "frontend/src/hooks/useAdminProducts.ts",
+          "operation": "create",
+          "description": "Add React Query mutation hooks for create/update/delete product operations, including success handlers that invalidate product list queries so category pages reflect changes."
+        },
+        {
+          "path": "frontend/src/components/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Add a minimal Admin navigation entry (only visible to authenticated admins) and include the LoginButton in the header so admins can access management tools without impacting public browsing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register and wire the admin route into the router and wrap it with the AdminRouteGuard so it is unreachable without Internet Identity auth + admin authorization."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add an Affiliate Disclosure page and a short affiliate disclosure snippet in the footer with English-only user-facing text.",
+      "acceptanceCriteria": [
+        "A dedicated \"Affiliate Disclosure\" page exists and is reachable from the footer",
+        "Footer contains a short affiliate disclosure snippet in English"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AffiliateDisclosurePage.tsx",
+          "operation": "create",
+          "description": "Create a dedicated Affiliate Disclosure page with clear English language describing affiliate relationships and commission disclosures."
+        },
+        {
+          "path": "frontend/src/components/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Add a short English affiliate disclosure snippet and a footer link that navigates to the Affiliate Disclosure page."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Affiliate Disclosure page route and ensure it is reachable from the footer across the site."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Apply a coherent luxury/fashion visual theme (neutral tones; not blue/purple) across Home, category pages, product views, and admin pages with consistent typography and spacing.",
+      "acceptanceCriteria": [
+        "A consistent palette and typography system is used across all pages",
+        "The design reads as luxury/fashion oriented (e.g., neutral tones, refined contrast, clean layout)",
+        "No pages fall back to unstyled default HTML appearance"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.css",
+          "operation": "modify",
+          "description": "Adjust Tailwind CSS variables and base styles to establish a neutral luxury palette (avoiding blue/purple), refined contrast, and consistent typography/spacing defaults applied site-wide."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend theme tokens (colors/typography/spacing as needed) to support a cohesive luxury styling system used by shared components and pages."
+        },
+        {
+          "path": "frontend/src/components/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Apply consistent luxury styling (layout, typography, spacing) and ensure the header remains responsive and readable on mobile and desktop."
+        },
+        {
+          "path": "frontend/src/components/SiteFooter.tsx",
+          "operation": "modify",
+          "description": "Apply consistent luxury styling and ensure footer readability and layout consistency across pages."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Ensure Home hero and featured sections follow the established luxury theme and do not display unstyled default HTML elements."
+        },
+        {
+          "path": "frontend/src/pages/CategoryPage.tsx",
+          "operation": "modify",
+          "description": "Ensure category listings (grid/cards) follow the established luxury theme and remain responsive without horizontal scrolling."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetailsPage.tsx",
+          "operation": "modify",
+          "description": "Ensure product details typography, spacing, and call-to-action styling match the luxury theme."
+        },
+        {
+          "path": "frontend/src/pages/AdminProductsPage.tsx",
+          "operation": "modify",
+          "description": "Ensure admin management UI uses the same theme system and does not fall back to unstyled defaults."
+        },
+        {
+          "path": "frontend/src/components/ui",
+          "operation": "modify",
+          "description": "Use shadcn-ui components consistently to avoid unstyled HTML controls and to maintain cohesive UI behavior and visuals. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add and render generated brand images as static assets and use them in the header/hero and favicon/app icon as appropriate.",
+      "acceptanceCriteria": [
+        "Generated images exist under frontend/public/assets/generated and are referenced by the UI",
+        "Brand mark appears in the header and/or Home hero area",
+        "An app icon/favicon is set using generated assets"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/aura-adorn-wordmark.dim_1200x300.png",
+          "operation": "create",
+          "description": "Add the generated aura&adorn wordmark image asset as a static public file for use in the header and/or hero."
+        },
+        {
+          "path": "frontend/public/assets/generated/aura-adorn-monogram.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated aura&adorn monogram image asset as a static public file for use as favicon/app icon."
+        },
+        {
+          "path": "frontend/public/assets/generated/aura-adorn-hero-bg.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated neutral hero background image asset as a static public file for use in the Home hero section."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/aura-adorn-monogram.dim_512x512.png as the favicon/app icon via appropriate head tags."
+        },
+        {
+          "path": "frontend/src/components/SiteHeader.tsx",
+          "operation": "modify",
+          "description": "Render the brand mark using frontend/public/assets/generated/aura-adorn-wordmark.dim_1200x300.png (and/or monogram) in the header alongside the brand name."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Use frontend/public/assets/generated/aura-adorn-hero-bg.dim_1920x1080.png in the hero section and display the wordmark (frontend/public/assets/generated/aura-adorn-wordmark.dim_1200x300.png) as part of the brand headline area."
+        }
+      ]
+    }
+  ]
+}

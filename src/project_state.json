@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Affiliate marketing website for fashion, jewelry, and luxury products under the account/name \"aura&adorn\".",
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-marketing-website-branded-as-aura-adorn-focused-on-fashion-jewelry-and-luxury-products-including-a-home-page-with-brand-headline-featured-product-sections-and-clear-navigation-to-categories",
+      "title": "Create a responsive marketing website branded as \"aura&adorn\" focused on fashion, jewelry, and luxury products, including a Home page with brand headline, featured product sections, and clear navigation to categories.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-core-affiliate-browsing-ux-category-listing-pages-fashion-jewelry-luxury-that-show-product-cards-image-name-short-description-price-price-range-optional-and-a-product-details-view-with-an-external-affiliate-link-button-that-opens-in-a-new-tab",
+      "title": "Implement core affiliate browsing UX: category listing pages (Fashion/Jewelry/Luxury) that show product cards (image, name, short description, price/price range optional), and a product details view with an external affiliate link button that opens in a new tab.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-simple-admin-only-ui-for-managing-affiliate-products-create-edit-delete-and-wire-it-to-the-backend-use-internet-identity-login-to-gate-access-to-the-admin-area-no-third-party-auth",
+      "title": "Create a simple admin-only UI for managing affiliate products (create/edit/delete) and wire it to the backend; use Internet Identity login to gate access to the admin area (no third-party auth).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-required-legal-affiliate-transparency-content-an-affiliate-disclosure-page-and-a-footer-snippet-indicating-that-the-site-may-earn-commissions-from-qualifying-purchases",
+      "title": "Add required legal/affiliate transparency content: an \"Affiliate Disclosure\" page and a footer snippet indicating that the site may earn commissions from qualifying purchases.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-fashion-luxury-visual-theme-not-blue-purple-across-the-entire-ui-including-typography-spacing-and-components-keep-it-consistent-across-home-category-pages-product-views-and-admin-pages",
+      "title": "Apply a coherent, fashion-luxury visual theme (not blue/purple) across the entire UI, including typography, spacing, and components; keep it consistent across Home, category pages, product views, and admin pages.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-the-generated-brand-images-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-header-hero-section-and-favicon-app-icon-as-appropriate",
+      "title": "Render the generated brand images as static assets under frontend/public/assets/generated and use them in the header/hero section and favicon/app icon as appropriate.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create an affiliate marketing website for fashion, jewelry, and luxury products (brand/account: aura&adorn).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add a basic product data model and persistence in the Motoko backend to support listing and viewing affiliate products, including fields: id, name, brand (optional), category (Fashion/Jewelry/Luxury), shortDescription, imageUrl (or stored image reference), affiliateUrl, and optional price/priceRange.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    }
+  ],
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Luxury fashion brand wordmark logo, black on transparent background (aura-adorn-wordmark.dim_1200x300.png)\n- Minimal monogram icon using letters A and A, black on transparent background (aura-adorn-monogram.dim_512x512.png)\n- Elegant neutral hero background with subtle fabric/jewelry-inspired texture (aura-adorn-hero-bg.dim_1920x1080.png)",
+  "generatedImages": [
+    {
+      "filename": "aura-adorn-wordmark.dim_1200x300.png",
+      "description": "Luxury fashion brand wordmark logo, black on transparent background",
+      "targetWidth": 1200,
+      "targetHeight": 300
+    },
+    {
+      "filename": "aura-adorn-monogram.dim_512x512.png",
+      "description": "Minimal monogram icon using letters A and A, black on transparent background",
+      "targetWidth": 512,
+      "targetHeight": 512
+    },
+    {
+      "filename": "aura-adorn-hero-bg.dim_1920x1080.png",
+      "description": "Elegant neutral hero background with subtle fabric/jewelry-inspired texture",
+      "targetWidth": 1920,
+      "targetHeight": 1080
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "aura&adorn",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

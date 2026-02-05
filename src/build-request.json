@@ -1,0 +1,152 @@
+{
+  "kind": "build_request",
+  "title": "Create aura&adorn affiliate marketing website for fashion, jewelry, and luxury products",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a responsive marketing website branded as \"aura&adorn\" focused on fashion, jewelry, and luxury products, including a Home page with brand headline, featured product sections, and clear navigation to categories.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Hey! I want to create a affiliate website for marketing, account name is aura&adorn and it's basically about fashion,jewelry and luxury products."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The site displays the brand name \"aura&adorn\" prominently on the Home page and header",
+        "The Home page includes sections for Fashion, Jewelry, and Luxury products",
+        "Layout is usable on mobile and desktop (no horizontal scroll, readable typography)"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement core affiliate browsing UX: category listing pages (Fashion/Jewelry/Luxury) that show product cards (image, name, short description, price/price range optional), and a product details view with an external affiliate link button that opens in a new tab.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a affiliate website for marketing... about fashion,jewelry and luxury products"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each category page shows a list/grid of products with images and titles",
+        "Each product has a details view (or expanded view) with a prominent \"Shop\" / \"View Offer\"-style outbound link",
+        "Outbound affiliate links open in a new browser tab"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a basic product data model and persistence in the Motoko backend to support listing and viewing affiliate products, including fields: id, name, brand (optional), category (Fashion/Jewelry/Luxury), shortDescription, imageUrl (or stored image reference), affiliateUrl, and optional price/priceRange.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "affiliate website... fashion,jewelry and luxury products"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend exposes query methods to list products by category and fetch a product by id",
+        "Backend exposes update methods to create/update/delete products",
+        "Data persists across canister upgrades using stable storage patterns appropriate for the template"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create a simple admin-only UI for managing affiliate products (create/edit/delete) and wire it to the backend; use Internet Identity login to gate access to the admin area (no third-party auth).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "create a affiliate website for marketing"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin page is not accessible unless the user is authenticated via Internet Identity",
+        "Admin can create, edit, and delete products and see changes reflected in category listings",
+        "Non-authenticated users can browse products but cannot access admin controls"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add required legal/affiliate transparency content: an \"Affiliate Disclosure\" page and a footer snippet indicating that the site may earn commissions from qualifying purchases.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "affiliate website for marketing"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A dedicated \"Affiliate Disclosure\" page exists and is reachable from the footer",
+        "Footer contains a short affiliate disclosure snippet in English"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Apply a coherent, fashion-luxury visual theme (not blue/purple) across the entire UI, including typography, spacing, and components; keep it consistent across Home, category pages, product views, and admin pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "account name is aura&adorn and it's basically about fashion,jewelry and luxury products."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A consistent palette and typography system is used across all pages",
+        "The design reads as luxury/fashion oriented (e.g., neutral tones, refined contrast, clean layout)",
+        "No pages fall back to unstyled default HTML appearance"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Render the generated brand images as static assets under frontend/public/assets/generated and use them in the header/hero section and favicon/app icon as appropriate.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "account name is aura&adorn"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images exist under frontend/public/assets/generated and are referenced by the UI",
+        "Brand mark appears in the header and/or Home hero area",
+        "An app icon/favicon is set using generated assets"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for all user-facing text.",
+    "Backend must remain a single Motoko actor in backend/main.mo (no additional backend services).",
+    "Do not edit files in frontend immutable paths (compose existing hooks/components instead).",
+    "Do not use third-party authentication providers; only Internet Identity is allowed."
+  ],
+  "nonGoals": [
+    "No payments or checkout flow on this site.",
+    "No third-party CMS integration.",
+    "No real-time features (chat, websockets, live updates).",
+    "No external database or cloud services."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Luxury fashion brand wordmark logo, black on transparent background (aura-adorn-wordmark.dim_1200x300.png)",
+      "Minimal monogram icon using letters A and A, black on transparent background (aura-adorn-monogram.dim_512x512.png)",
+      "Elegant neutral hero background with subtle fabric/jewelry-inspired texture (aura-adorn-hero-bg.dim_1920x1080.png)"
+    ],
+    "edits": []
+  }
+}

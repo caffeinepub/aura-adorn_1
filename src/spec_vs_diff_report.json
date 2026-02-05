@@ -1,0 +1,93 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-05T02:53:59.752Z",
+  "summary": "Core frontend pages, routing, luxury-themed styling, affiliate disclosure content, and an admin CRUD UI with Internet Identity-based gating are implemented. Backend includes an in-canister product store with admin-only create/update/delete and public read methods, but required category-specific listing and stable persistence across upgrades are not evidenced. Some additional user-profile onboarding functionality appears added but was not requested.",
+  "missing_requirements": [
+    {
+      "id": "REQ-3",
+      "requirement": "Backend must expose query methods to list products by category and fetch a product by id.",
+      "reason": "The backend shows `getProduct(id)` and `listProducts()` but does not show a query method to list by category (e.g., `listProductsByCategory(category)`). Frontend instead filters client-side after calling `listProducts()`.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/pages/CategoryPage.tsx"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "requirement": "Data persists across canister upgrades using stable storage patterns appropriate for the template.",
+      "reason": "The backend uses in-memory `Map.empty` stores for products and user profiles, but no stable variables and no `preupgrade`/`postupgrade` (or equivalent stable-storage pattern) are shown, so persistence across upgrades is not evidenced.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "requirement": "Each product has a details view with a prominent outbound affiliate link button that opens in a new browser tab.",
+      "reason": "A `ProductDetailsPage` route is wired, but the implementation of `frontend/src/pages/ProductDetailsPage` is not included in the diff summary, so the presence of the outbound link and `target=\"_blank\"` behavior is not evidenced.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "An app icon/favicon is set using generated assets.",
+      "reason": "Generated images are referenced in header/footer/hero, but no favicon/app-icon configuration (e.g., in an `index.html`, manifest, or head config) is shown in the diff summary, so setting the favicon is not evidenced.",
+      "evidence": [
+        "frontend/src/components/SiteHeader.tsx",
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/components/SiteFooter.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "User profile management (get/save user profile) and a forced profile setup modal on first login.",
+      "reason": "The BuildRequest focuses on affiliate browsing and admin product management; user profile CRUD and onboarding modal were not requested requirements or acceptance criteria.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "description": "Access-control initialization via a secret URL parameter `caffeineAdminToken` and calling `_initializeAccessControlWithSecret`.",
+      "reason": "BuildRequest requires Internet Identity gating for admin access but does not request secret-token based initialization or URL-secret parameters.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AccessDeniedScreen.tsx",
+    "frontend/src/components/AdminRouteGuard.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/LoginButton.tsx",
+    "frontend/src/components/ProductCard.tsx",
+    "frontend/src/components/ProfileSetupModal.tsx",
+    "frontend/src/components/SiteFooter.tsx",
+    "frontend/src/components/SiteHeader.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useAdminProducts.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AdminProductsPage.tsx",
+    "frontend/src/pages/AffiliateDisclosurePage.tsx",
+    "frontend/src/pages/CategoryPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/ProductDetailsPage.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

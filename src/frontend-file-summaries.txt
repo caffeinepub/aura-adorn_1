@@ -1,0 +1,23 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining all routes (home, categories, product details, admin, affiliate disclosure) and wrapping the app with ThemeProvider and Toaster.",
+  "frontend/src/components/Layout.tsx": "Root layout component that renders the site header, main content outlet, footer, and profile setup modal for all pages.",
+  "frontend/src/components/SiteHeader.tsx": "Responsive header component displaying the aura&adorn brand logo/wordmark, navigation links to categories, admin link (for authenticated admins), and login button with mobile menu support.",
+  "frontend/src/components/SiteFooter.tsx": "Footer component with brand information, quick links to categories, affiliate disclosure link, legal snippet, and copyright notice with caffeine.ai attribution.",
+  "frontend/src/components/LoginButton.tsx": "Authentication button component that handles Internet Identity login/logout and clears query cache on logout.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog that prompts authenticated users without a profile to enter their name on first login, preventing dismissal until completed.",
+  "frontend/src/components/ProductCard.tsx": "Reusable product card component displaying product image, brand, name, description, and price with hover effects and link to product details.",
+  "frontend/src/components/AdminRouteGuard.tsx": "Route guard component that checks authentication and admin authorization, rendering access denied screen for unauthorized users.",
+  "frontend/src/components/AccessDeniedScreen.tsx": "Access denied screen component with login prompt for unauthenticated users and home navigation option.",
+  "frontend/src/pages/HomePage.tsx": "Home page with hero section featuring brand wordmark and background image, plus featured product sections for Fashion, Jewelry, and Luxury categories.",
+  "frontend/src/pages/CategoryPage.tsx": "Category listing page that filters and displays products by category (Fashion/Jewelry/Luxury) in a responsive grid layout.",
+  "frontend/src/pages/ProductDetailsPage.tsx": "Product details page showing full product information, image, description, price, and prominent affiliate link button that opens in new tab.",
+  "frontend/src/pages/AdminProductsPage.tsx": "Admin-only product management page with table view of all products and dialog form for creating, editing, and deleting products with full CRUD operations.",
+  "frontend/src/pages/AffiliateDisclosurePage.tsx": "Dedicated affiliate disclosure page with comprehensive information about affiliate relationships, commissions, and FTC compliance.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for fetching user profiles, user roles, and product data from the backend with proper caching and invalidation.",
+  "frontend/src/hooks/useAdminProducts.ts": "React Query mutation hooks for admin product operations (create, update, delete) with automatic cache invalidation.",
+  "frontend/index.css": "Global styles with OKLCH-based luxury color system using neutral warm grays and creams, avoiding blue/purple tones, with full light and dark mode support.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with luxury-oriented design tokens, custom fonts (Inter and Playfair Display), and elegant shadows.",
+  "frontend/index.html": "HTML entry point with meta tags, favicon references to generated brand assets, and Google Fonts preconnect for Inter and Playfair Display fonts.",
+  "frontend/src/main.tsx": "Application entry point that sets up React Query, Internet Identity provider, and renders the root App component with correct CSS import path.",
+  "frontend/src/index.css": "Global styles with OKLCH-based luxury color system using neutral warm grays and creams, avoiding blue/purple tones, with full light and dark mode support."
+}
