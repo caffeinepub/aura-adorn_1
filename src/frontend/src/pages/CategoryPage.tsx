@@ -1,6 +1,10 @@
+import { useNavigate } from '@tanstack/react-router';
 import { Category } from '../backend';
 import { useListProducts } from '../hooks/useQueries';
 import ProductCard from '../components/ProductCard';
+import { Button } from '@/components/ui/button';
+import { useInternetIdentity } from '../hooks/useInternetIdentity';
+import { useGetCallerUserRole } from '../hooks/useQueries';
 
 interface CategoryPageProps {
   category: keyof typeof Category;
@@ -8,7 +12,11 @@ interface CategoryPageProps {
 
 export default function CategoryPage({ category }: CategoryPageProps) {
   const { data: allProducts = [], isLoading } = useListProducts();
+  const navigate = useNavigate();
+  const { identity } = useInternetIdentity();
+  const { data: userRole } = useGetCallerUserRole();
 
+  const isAdmin = identity && userRole === 'admin';
   const products = allProducts.filter((p) => p.category === Category[category]);
 
   const categoryTitles = {
@@ -46,9 +54,14 @@ export default function CategoryPage({ category }: CategoryPageProps) {
         </div>
       ) : (
         <div className="py-16 text-center">
-          <p className="text-lg text-muted-foreground">
+          <p className="mb-4 text-lg text-muted-foreground">
             No products available in this category yet.
           </p>
+          {isAdmin && (
+            <Button onClick={() => navigate({ to: '/admin' })}>
+              Add Products
+            </Button>
+          )}
         </div>
       )}
     </div>

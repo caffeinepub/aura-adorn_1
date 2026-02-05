@@ -54,7 +54,7 @@ export default function SiteHeader() {
                 onClick={() => navigate({ to: '/admin' })}
                 className="text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground"
               >
-                Admin
+                Manage Products
               </button>
             )}
           </nav>
@@ -98,7 +98,7 @@ export default function SiteHeader() {
                   }}
                   className="text-left text-sm font-medium tracking-wide text-foreground/80 transition-colors hover:text-foreground"
                 >
-                  Admin
+                  Manage Products
                 </button>
               )}
               <div className="pt-4">

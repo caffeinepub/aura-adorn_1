@@ -1,53 +1,105 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
-  "summary": "Affiliate marketing website for fashion, jewelry, and luxury products under the account/name \"aura&adorn\".",
+  "projectStateVersion": 7,
+  "summary": "ICP (Motoko + React) starter app with Internet Identity authentication, role-based authorization (admin access control), and a simple product catalog frontend including admin product management pages and generated brand assets.",
   "existing_features": [
     {
-      "id": "feature-create-a-responsive-marketing-website-branded-as-aura-adorn-focused-on-fashion-jewelry-and-luxury-products-including-a-home-page-with-brand-headline-featured-product-sections-and-clear-navigation-to-categories",
-      "title": "Create a responsive marketing website branded as \"aura&adorn\" focused on fashion, jewelry, and luxury products, including a Home page with brand headline, featured product sections, and clear navigation to categories.",
+      "id": "IF-1",
+      "title": "Internet Identity authentication (frontend hooks + login UI)",
+      "synonyms": [
+        "II login",
+        "Internet Identity sign-in"
+      ],
+      "description": "Frontend integrates Internet Identity via hooks and a login button to create an authenticated identity for canister calls.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "Backend role-based authorization (access control + authorization mixin)",
+      "synonyms": [
+        "RBAC",
+        "admin authorization"
+      ],
+      "description": "Motoko backend includes authorization mixin and access-control logic to gate privileged operations (e.g., admin-only actions).",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "Admin route guarding in the frontend",
+      "synonyms": [
+        "AdminRouteGuard",
+        "access denied screen"
+      ],
+      "description": "Frontend adds an admin route guard and an Access Denied screen to prevent non-admin users from accessing admin pages.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Product catalog frontend pages",
+      "synonyms": [
+        "Home/Category/Product details"
+      ],
+      "description": "Frontend includes Home, Category, and Product Details pages with reusable components (e.g., ProductCard) and site layout/header/footer.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "Admin products management page",
+      "synonyms": [
+        "AdminProductsPage"
+      ],
+      "description": "Frontend includes an admin products page and supporting hooks for querying/admin product workflows.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Profile setup modal and basic client-side storage utility",
+      "synonyms": [
+        "ProfileSetupModal",
+        "StorageClient"
+      ],
+      "description": "Includes UI for profile setup and a storage utility used by the frontend for persisting local state/preferences.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "Build template and tooling for ICP deploy + image processing",
+      "synonyms": [
+        "Dockerfile build-template",
+        "deploy.sh",
+        "resize-images"
+      ],
+      "description": "Adds build-template project scaffolding (Dockerfile, deploy scripts, canister configs) and scripts to resize/prune images.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-concise-how-to-add-products-help-section-to-the-top-of-the-admin-product-management-page-that-explains-the-exact-steps-an-admin-should-take-login-open-admin-manage-products-click-add-product-fill-required-fields-save-and-clearly-lists-required-fields-product-name-category-description-image-url-affiliate-url-vs-optional-fields-brand-price",
+      "title": "Add a concise “How to add products” help section to the top of the /admin Product Management page that explains the exact steps an admin should take (login, open Admin/Manage Products, click “Add Product”, fill required fields, save), and clearly lists required fields (Product Name, Category, Description, Image URL, Affiliate URL) vs optional fields (Brand, Price).",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-implement-core-affiliate-browsing-ux-category-listing-pages-fashion-jewelry-luxury-that-show-product-cards-image-name-short-description-price-price-range-optional-and-a-product-details-view-with-an-external-affiliate-link-button-that-opens-in-a-new-tab",
-      "title": "Implement core affiliate browsing UX: category listing pages (Fashion/Jewelry/Luxury) that show product cards (image, name, short description, price/price range optional), and a product details view with an external affiliate link button that opens in a new tab.",
+      "id": "feature-improve-admin-navigation-labeling-so-admins-can-more-easily-find-where-to-add-products-by-renaming-the-header-nav-item-currently-labeled-admin-to-manage-products-still-routing-to-admin-in-both-desktop-and-mobile-navigation",
+      "title": "Improve admin navigation labeling so admins can more easily find where to add products by renaming the header nav item currently labeled “Admin” to “Manage Products” (still routing to /admin) in both desktop and mobile navigation.",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
     },
     {
-      "id": "feature-create-a-simple-admin-only-ui-for-managing-affiliate-products-create-edit-delete-and-wire-it-to-the-backend-use-internet-identity-login-to-gate-access-to-the-admin-area-no-third-party-auth",
-      "title": "Create a simple admin-only UI for managing affiliate products (create/edit/delete) and wire it to the backend; use Internet Identity login to gate access to the admin area (no third-party auth).",
+      "id": "feature-when-a-category-page-has-no-products-and-the-current-user-is-an-admin-add-a-secondary-call-to-action-in-the-empty-state-e-g-a-button-that-navigates-directly-to-admin-to-add-the-first-product-for-that-category",
+      "title": "When a category page has no products and the current user is an admin, add a secondary call-to-action in the empty state (e.g., a button) that navigates directly to /admin to add the first product for that category.",
       "reqIds": [
-        "REQ-4"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-add-required-legal-affiliate-transparency-content-an-affiliate-disclosure-page-and-a-footer-snippet-indicating-that-the-site-may-earn-commissions-from-qualifying-purchases",
-      "title": "Add required legal/affiliate transparency content: an \"Affiliate Disclosure\" page and a footer snippet indicating that the site may earn commissions from qualifying purchases.",
-      "reqIds": [
-        "REQ-5"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-apply-a-coherent-fashion-luxury-visual-theme-not-blue-purple-across-the-entire-ui-including-typography-spacing-and-components-keep-it-consistent-across-home-category-pages-product-views-and-admin-pages",
-      "title": "Apply a coherent, fashion-luxury visual theme (not blue/purple) across the entire UI, including typography, spacing, and components; keep it consistent across Home, category pages, product views, and admin pages.",
-      "reqIds": [
-        "REQ-6"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-render-the-generated-brand-images-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-header-hero-section-and-favicon-app-icon-as-appropriate",
-      "title": "Render the generated brand images as static assets under frontend/public/assets/generated and use them in the header/hero section and favicon/app icon as appropriate.",
-      "reqIds": [
-        "REQ-7"
+        "REQ-3"
       ],
       "version": 1
     }
@@ -55,41 +107,36 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Create an affiliate marketing website for fashion, jewelry, and luxury products (brand/account: aura&adorn).",
+      "summary": "Add/enable an admin workflow for adding new products to the catalog (create product UI and/or guidance for using the existing admin products management page).",
       "reqIds": [],
-      "status": "pending"
-    },
-    {
-      "id": "AR-4",
-      "summary": "Add a basic product data model and persistence in the Motoko backend to support listing and viewing affiliate products, including fields: id, name, brand (optional), category (Fashion/Jewelry/Luxury), shortDescription, imageUrl (or stored image reference), affiliateUrl, and optional price/priceRange.",
-      "reqIds": [
-        "REQ-3"
-      ],
       "status": "pending"
     }
   ],
-  "architectural_notes": [],
+  "architectural_notes": [
+    "Frontend uses React + Vite with shared hooks for Internet Identity and canister actor creation.",
+    "Backend uses Motoko authorization/access-control modules to enforce admin-only actions.",
+    "Build-template provides reproducible deploy/build pipeline plus image resize/prune scripts for generated assets."
+  ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Luxury fashion brand wordmark logo, black on transparent background (aura-adorn-wordmark.dim_1200x300.png)\n- Minimal monogram icon using letters A and A, black on transparent background (aura-adorn-monogram.dim_512x512.png)\n- Elegant neutral hero background with subtle fabric/jewelry-inspired texture (aura-adorn-hero-bg.dim_1920x1080.png)",
   "generatedImages": [
     {
-      "filename": "aura-adorn-wordmark.dim_1200x300.png",
-      "description": "Luxury fashion brand wordmark logo, black on transparent background",
-      "targetWidth": 1200,
-      "targetHeight": 300
+      "filename": "frontend/public/assets/generated/aura-adorn-hero-bg.dim_1920x1080.png",
+      "description": "Generated hero background image asset.",
+      "targetWidth": 1920,
+      "targetHeight": 1080
     },
     {
-      "filename": "aura-adorn-monogram.dim_512x512.png",
-      "description": "Minimal monogram icon using letters A and A, black on transparent background",
+      "filename": "frontend/public/assets/generated/aura-adorn-monogram.dim_512x512.png",
+      "description": "Generated monogram image asset.",
       "targetWidth": 512,
       "targetHeight": 512
     },
     {
-      "filename": "aura-adorn-hero-bg.dim_1920x1080.png",
-      "description": "Elegant neutral hero background with subtle fabric/jewelry-inspired texture",
-      "targetWidth": 1920,
-      "targetHeight": 1080
+      "filename": "frontend/public/assets/generated/aura-adorn-wordmark.dim_1200x300.png",
+      "description": "Generated wordmark image asset.",
+      "targetWidth": 1200,
+      "targetHeight": 300
     }
   ],
   "gameProjectType": "none",

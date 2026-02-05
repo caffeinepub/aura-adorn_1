@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Pencil, Trash2 } from 'lucide-react';
+import { Plus, Pencil, Trash2, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -28,6 +28,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import AdminRouteGuard from '../components/AdminRouteGuard';
 import { useListProducts, useCreateProduct, useUpdateProduct, useDeleteProduct } from '../hooks/useAdminProducts';
 import { Category, type Product } from '../backend';
@@ -145,6 +146,31 @@ function AdminProductsContent() {
 
   return (
     <div className="container mx-auto px-4 py-12">
+      {/* Instructions Section */}
+      <Alert className="mb-8">
+        <Info className="h-4 w-4" />
+        <AlertTitle>How to Add Products</AlertTitle>
+        <AlertDescription className="mt-2 space-y-2">
+          <ol className="list-inside list-decimal space-y-1 text-sm">
+            <li>Log in with your admin account</li>
+            <li>Navigate to Manage Products (this page)</li>
+            <li>Click the "Add Product" button</li>
+            <li>Fill in all required fields and save</li>
+          </ol>
+          <div className="mt-3 space-y-1 text-sm">
+            <p>
+              <strong>Required fields:</strong> Product Name, Category, Description, Image URL, Affiliate URL
+            </p>
+            <p>
+              <strong>Optional fields:</strong> Brand, Price
+            </p>
+            <p className="text-muted-foreground">
+              Note: Image URL and Affiliate URL must be valid URLs (e.g., https://example.com/image.jpg)
+            </p>
+          </div>
+        </AlertDescription>
+      </Alert>
+
       <div className="mb-8 flex items-center justify-between">
         <div>
           <h1 className="mb-2 text-4xl font-bold">Product Management</h1>

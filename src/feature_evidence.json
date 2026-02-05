@@ -2,13 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-responsive-marketing-website-branded-as-aura-adorn-focused-on-fashion-jewelry-and-luxury-products-including-a-home-page-with-brand-headline-featured-product-sections-and-clear-navigation-to-categories",
-      "featureTitle": "Create a responsive marketing website branded as \"aura&adorn\" focused on fashion, jewelry, and luxury products, including a Home page with brand headline, featured product sections, and clear navigation to categories.",
+      "featureId": "feature-add-a-concise-how-to-add-products-help-section-to-the-top-of-the-admin-product-management-page-that-explains-the-exact-steps-an-admin-should-take-login-open-admin-manage-products-click-add-product-fill-required-fields-save-and-clearly-lists-required-fields-product-name-category-description-image-url-affiliate-url-vs-optional-fields-brand-price",
+      "featureTitle": "Add a concise “How to add products” help section to the top of the /admin Product Management page that explains the exact steps an admin should take (login, open Admin/Manage Products, click “Add Product”, fill required fields, save), and clearly lists required fields (Product Name, Category, Description, Image URL, Affiliate URL) vs optional fields (Brand, Price).",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/SiteFooter.tsx",
-        "frontend/src/components/SiteHeader.tsx",
-        "frontend/src/pages/HomePage.tsx"
+        "frontend/src/pages/AdminProductsPage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -24,13 +21,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-implement-core-affiliate-browsing-ux-category-listing-pages-fashion-jewelry-luxury-that-show-product-cards-image-name-short-description-price-price-range-optional-and-a-product-details-view-with-an-external-affiliate-link-button-that-opens-in-a-new-tab",
-      "featureTitle": "Implement core affiliate browsing UX: category listing pages (Fashion/Jewelry/Luxury) that show product cards (image, name, short description, price/price range optional), and a product details view with an external affiliate link button that opens in a new tab.",
+      "featureId": "feature-improve-admin-navigation-labeling-so-admins-can-more-easily-find-where-to-add-products-by-renaming-the-header-nav-item-currently-labeled-admin-to-manage-products-still-routing-to-admin-in-both-desktop-and-mobile-navigation",
+      "featureTitle": "Improve admin navigation labeling so admins can more easily find where to add products by renaming the header nav item currently labeled “Admin” to “Manage Products” (still routing to /admin) in both desktop and mobile navigation.",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/ProductCard.tsx",
-        "frontend/src/pages/CategoryPage.tsx",
-        "frontend/src/pages/ProductDetailsPage.tsx"
+        "frontend/src/components/SiteHeader.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -46,16 +40,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-create-a-simple-admin-only-ui-for-managing-affiliate-products-create-edit-delete-and-wire-it-to-the-backend-use-internet-identity-login-to-gate-access-to-the-admin-area-no-third-party-auth",
-      "featureTitle": "Create a simple admin-only UI for managing affiliate products (create/edit/delete) and wire it to the backend; use Internet Identity login to gate access to the admin area (no third-party auth).",
+      "featureId": "feature-when-a-category-page-has-no-products-and-the-current-user-is-an-admin-add-a-secondary-call-to-action-in-the-empty-state-e-g-a-button-that-navigates-directly-to-admin-to-add-the-first-product-for-that-category",
+      "featureTitle": "When a category page has no products and the current user is an admin, add a secondary call-to-action in the empty state (e.g., a button) that navigates directly to /admin to add the first product for that category.",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/AccessDeniedScreen.tsx",
-        "frontend/src/components/AdminRouteGuard.tsx",
-        "frontend/src/components/LoginButton.tsx",
-        "frontend/src/components/SiteHeader.tsx",
-        "frontend/src/hooks/useAdminProducts.ts",
-        "frontend/src/pages/AdminProductsPage.tsx"
+        "frontend/src/pages/CategoryPage.tsx"
       ],
       "components": [
         "authorization@4.0.0",
@@ -66,75 +54,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-required-legal-affiliate-transparency-content-an-affiliate-disclosure-page-and-a-footer-snippet-indicating-that-the-site-may-earn-commissions-from-qualifying-purchases",
-      "featureTitle": "Add required legal/affiliate transparency content: an \"Affiliate Disclosure\" page and a footer snippet indicating that the site may earn commissions from qualifying purchases.",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/SiteFooter.tsx",
-        "frontend/src/pages/AffiliateDisclosurePage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-apply-a-coherent-fashion-luxury-visual-theme-not-blue-purple-across-the-entire-ui-including-typography-spacing-and-components-keep-it-consistent-across-home-category-pages-product-views-and-admin-pages",
-      "featureTitle": "Apply a coherent, fashion-luxury visual theme (not blue/purple) across the entire UI, including typography, spacing, and components; keep it consistent across Home, category pages, product views, and admin pages.",
-      "files": [
-        "frontend/index.css",
-        "frontend/src/components/SiteFooter.tsx",
-        "frontend/src/components/SiteHeader.tsx",
-        "frontend/src/pages/AdminProductsPage.tsx",
-        "frontend/src/pages/CategoryPage.tsx",
-        "frontend/src/pages/HomePage.tsx",
-        "frontend/src/pages/ProductDetailsPage.tsx",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-6"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-render-the-generated-brand-images-as-static-assets-under-frontend-public-assets-generated-and-use-them-in-the-header-hero-section-and-favicon-app-icon-as-appropriate",
-      "featureTitle": "Render the generated brand images as static assets under frontend/public/assets/generated and use them in the header/hero section and favicon/app icon as appropriate.",
-      "files": [
-        "frontend/index.html",
-        "frontend/src/components/SiteHeader.tsx",
-        "frontend/src/pages/HomePage.tsx"
-      ],
-      "components": [
-        "authorization@4.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
+        "REQ-3"
       ],
       "confidence": "high"
     }
